@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin | Diagonal Motors</title>
+  <link rel="icon" type="image/jpeg" href="LogoDiagonalMotors.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root { --bg-dark: #121212; --card-bg: #1e1e1e; --primary-red: #D32F2F; --text: #fff; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+    body { background: var(--bg-dark); color: var(--text); padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { color: var(--primary-red); margin-bottom: 20px; text-align: center; }
+    
+    .form-card { background: var(--card-bg); padding: 20px; border-radius: 8px; border: 1px solid #333; margin-bottom: 30px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, textarea, select { width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #222; color: #fff; }
+    .checkbox-group { display: flex; align-items: center; gap: 10px; }
+    .checkbox-group input { width: auto; }
+    
+    button { background: var(--primary-red); color: white; padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; }
+    button:hover { background: #b71c1c; }
+
+    .auto-item { background: var(--card-bg); border: 1px solid #333; padding: 15px; border-radius: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+    .auto-item.vendido { opacity: 0.5; }
+    .actions { display: flex; gap: 10px; }
+    .btn-edit { background: #E5A823; color: black; padding: 6px 12px; border-radius: 4px; cursor: pointer; text-decoration: none; font-size: 0.9rem; }
+    .btn-vendido { background: #388E3C; color: white; padding: 6px 12px; border-radius: 4px; cursor: pointer; border: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Panel de Control - Diagonal Motors</h1>
+
+    <div class="form-card">
+      <h2 id="form-title" style="margin-bottom: 15px;">Cargar Nuevo Auto</h2>
+      <form id="auto-form">
+        <input type="hidden" id="auto-id">
+        <div class="form-group">
+          <label>Título / Modelo</label>
+          <input type="text" id="titulo" placeholder="Ej: Peugeot 208 1.6 Feline" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label>Precio</label>
+            <input type="text" id="precio" placeholder="Ej: 12.500" required>
+          </div>
+          <div class="form-group">
+            <label>Moneda</label>
+            <select id="moneda"><option value="USD">USD</option><option value="ARS">ARS</option></select>
+          </div>
+          <div class="form-group">
+            <label>Año</label>
+            <input type="number" id="ano" placeholder="2020" required>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label>Kilómetros</label>
+            <input type="text" id="kilometros" placeholder="Ej: 45.000 km" required>
+          </div>
+          <div class="form-group">
+            <label>Color</label>
+            <input type="text" id="color" placeholder="Ej: Rojo Lucano" required>
+          </div>
+        </div>
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="precioCharlable">
+          <label for="precioCharlable">¿Precio Charlable?</label>
+        </div>
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea id="descripcion" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Subir Imágenes (ImgBB)</label>
+          <input type="file" id="fotos-input" multiple accept="image/*">
+          <small style="color: #aaa;">Se agregarán a las existentes si estás editando.</small>
+        </div>
+        <button type="submit" id="btn-save">Guardar Vehículo</button>
+      </form>
+    </div>
+
+    <h2>Inventario Actual</h2>
+    <div id="inventario-list" style="margin-top: 15px;">Cargando inventario...</div>
+  </div>
+
+  <script>
+    const CONFIG = {
+      imgbbUrl: "https://api.imgbb.com/1/upload?key=d834a9f8aa6a16854bca360f87d9450f",
+      binId: "6ab274b7ffd5d1605322f7b0",
+      apiKey: "$2a$10$IySOsp8KPzkmNsT3HX4iOefVmsBhQm.V0KwP6k6sdeJflkVcqm1ry"
+    };
+
+    let globalData = { empresa: {}, autos: [] };
+
+    async function cargarBin() {
+      const res = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.binId}/latest`, {
+        headers: { 'X-Master-Key': CONFIG.apiKey }
+      });
+      const data = await res.json();
+      globalData = data.record;
+      renderInventario();
+    }
+
+    async function guardarBin() {
+  try {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.binId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': CONFIG.apiKey
+      },
+      body: JSON.stringify(globalData)
+    });
+
+    if (!res.ok) {
+      throw new Error(`Error HTTP: ${res.status}`);
+    }
+
+    alert('¡Guardado con éxito!');
+    cargarBin();
+  } catch (error) {
+    console.error("Error al guardar en JSONBin:", error);
+    alert('Ocurrió un error al guardar los datos. Revisa la consola.');
+  }
+}
+
+    async function uploadImage(file) {
+      const formData = new FormData();
+      formData.append('image', file);
+      const res = await fetch(CONFIG.imgbbUrl, { method: 'POST', body: formData });
+      const json = await res.json();
+      return json.data.url;
+    }
+
+    document.getElementById('auto-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('btn-save');
+      btn.innerText = 'Procesando e imágen(es)...';
+      btn.disabled = true;
+
+      const id = document.getElementById('auto-id').value;
+      const files = document.getElementById('fotos-input').files;
+      let newFotos = [];
+
+      for(let file of files) {
+        const url = await uploadImage(file);
+        newFotos.push(url);
+      }
+
+      if(id) {
+        // Editar
+        const auto = globalData.autos.find(a => a.id === id);
+        auto.titulo = document.getElementById('titulo').value;
+        auto.precio = document.getElementById('precio').value;
+        auto.moneda = document.getElementById('moneda').value;
+        auto.año = parseInt(document.getElementById('ano').value);
+        auto.kilometros = document.getElementById('kilometros').value;
+        auto.color = document.getElementById('color').value;
+        auto.precioCharlable = document.getElementById('precioCharlable').checked;
+        auto.descripcion = document.getElementById('descripcion').value;
+        if(newFotos.length > 0) auto.fotos = [...auto.fotos, ...newFotos];
+      } else {
+        // Nuevo
+        const newAuto = {
+          id: Date.now().toString(),
+          titulo: document.getElementById('titulo').value,
+          precio: document.getElementById('precio').value,
+          moneda: document.getElementById('moneda').value,
+          año: parseInt(document.getElementById('ano').value),
+          kilometros: document.getElementById('kilometros').value,
+          color: document.getElementById('color').value,
+          precioCharlable: document.getElementById('precioCharlable').checked,
+          descripcion: document.getElementById('descripcion').value,
+          fotos: newFotos,
+          vendido: false
+        };
+        globalData.autos.unshift(newAuto);
+      }
+
+      await guardarBin();
+      document.getElementById('auto-form').reset();
+      document.getElementById('auto-id').value = '';
+      document.getElementById('form-title').innerText = 'Cargar Nuevo Auto';
+      btn.innerText = 'Guardar Vehículo';
+      btn.disabled = false;
+    });
+
+    function renderInventario() {
+      const container = document.getElementById('inventario-list');
+      container.innerHTML = '';
+
+      globalData.autos.forEach(auto => {
+        const item = document.createElement('div');
+        item.className = `auto-item ${auto.vendido ? 'vendido' : ''}`;
+        item.innerHTML = `
+          <div>
+            <strong>${auto.titulo} (${auto.año})</strong> - ${auto.moneda} $${auto.precio}
+            <br><small style="color:#aaa;">${auto.vendido ? 'MARCADO COMO VENDIDO' : 'En Venta'}</small>
+          </div>
+          <div class="actions">
+            <button class="btn-edit" onclick="prepararEdicion('${auto.id}')">Editar</button>
+            <button class="btn-vendido" onclick="toggleVendido('${auto.id}')">
+              ${auto.vendido ? 'Reactivar' : 'Marcar Vendido'}
+            </button>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function prepararEdicion(id) {
+      const auto = globalData.autos.find(a => a.id === id);
+      document.getElementById('auto-id').value = auto.id;
+      document.getElementById('titulo').value = auto.titulo;
+      document.getElementById('precio').value = auto.precio;
+      document.getElementById('moneda').value = auto.moneda || 'USD';
+      document.getElementById('ano').value = auto.año;
+      document.getElementById('kilometros').value = auto.kilometros;
+      document.getElementById('color').value = auto.color || '';
+      document.getElementById('precioCharlable').checked = auto.precioCharlable;
+      document.getElementById('descripcion').value = auto.descripcion;
+      document.getElementById('form-title').innerText = 'Editando Vehículo';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function toggleVendido(id) {
+      const auto = globalData.autos.find(a => a.id === id);
+      auto.vendido = !auto.vendido;
+      await guardarBin();
+    }
+
+    cargarBin();
+  </script>
+</body>
+</html>
