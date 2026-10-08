@@ -96,13 +96,13 @@
     }
 
     .carousel img { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      filter: brightness(0.95);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      cursor: zoom-in;
-    }
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  filter: brightness(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
 
     .carousel img:hover {
       transform: scale(1.02);
@@ -447,6 +447,11 @@
 
     /* Modal de Imagen Ampliada (Lightbox) */
 /* Modal de Imagen Ampliada (Lightbox Corregido) */
+/* Modal de Imagen Ampliada (Lightbox) */
+#image-modal {
+  cursor: pointer; /* Muestra la mano para indicar que al hacer clic afuera se cierra */
+}
+
 .image-modal-content {
   position: relative;
   width: 90vw;
@@ -456,15 +461,18 @@
   justify-content: center;
   align-items: center;
   animation: modalFadeIn 0.3s ease;
+  pointer-events: none; /* Evita que los elementos internos alteren el cursor */
 }
 
 .image-modal-content img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Mantiene la proporción sin deformar la foto */
+  object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.8);
   border: 1px solid rgba(255,255,255,0.1);
+  cursor: default !important; /* Fuerza el cursor normal sobre la foto */
+  pointer-events: auto; /* Mantiene la interacción solo para lo necesario */
 }
 
 .image-modal-close {
@@ -475,9 +483,10 @@
   border: none;
   color: #fff;
   font-size: 2.2rem;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: color 0.2s;
   z-index: 1001;
+  pointer-events: auto;
 }
 .image-modal-close:hover { color: var(--primary-red); }
 
@@ -755,7 +764,12 @@
         <div class="carousel" id="carousel-${index}">
           ${auto.precioCharlable ? '<span class="badge-charlable"><i class="fa-solid fa-handshake"></i> PRECIO CHARLABLE</span>' : ''}
           
-          <img id="img-${index}" src="${fotos[0]}" onerror="this.src='${fallbackImg}'" alt="${auto.titulo}" onclick="openImageModal(${index})">
+          <img id="img-${index}" 
+     src="${fotos[0]}" 
+     onerror="this.src='${fallbackImg}'" 
+     alt="${auto.titulo}" 
+     style="cursor: pointer;" 
+     onclick="openImageModal(${index}); return false;">
           
           ${fotos.length > 1 ? `
             <button class="carousel-btn prev" onclick="changePhoto(${index}, -1)"><i class="fa-solid fa-chevron-left"></i></button>
