@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diagonal Motors | La Plata - Venta, Permutas y Consignaciones</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="icon" type="image/jpeg" href="LogoDiagonalMotors.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/jpeg" href="LogoDiagonalMotors.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #111111;
@@ -44,212 +43,218 @@
     .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
 
     /* Título de sección sobrio */
-.section-title { 
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.4rem; 
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 30px; 
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-transform: uppercase;
-}
-.section-title::before {
-  content: '';
-  display: block;
-  width: 4px;
-  height: 20px;
-  background: var(--primary-red);
-  border-radius: 2px;
-}
+    .section-title { 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem; 
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 30px; 
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-transform: uppercase;
+    }
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 20px;
+      background: var(--primary-red);
+      border-radius: 2px;
+    }
 
-/* Grilla y Tarjetas Sobrias */
-.grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); 
-  gap: 30px; 
-}
+    /* Grilla y Tarjetas Sobrias */
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); 
+      gap: 30px; 
+    }
 
-.card { 
-  background: #161618; 
-  border-radius: 8px; 
-  overflow: hidden; 
-  border: 1px solid #26262a; 
-  display: flex; 
-  flex-direction: column; 
-  transition: border-color 0.3s ease, transform 0.3s ease; 
-}
+    .card { 
+      background: #161618; 
+      border-radius: 8px; 
+      overflow: hidden; 
+      border: 1px solid #26262a; 
+      display: flex; 
+      flex-direction: column; 
+      transition: border-color 0.3s ease, transform 0.3s ease; 
+    }
 
-.card:hover { 
+    .card:hover { 
       transform: translateY(-6px); 
       border-color: var(--primary-red); 
       box-shadow: 0 12px 25px rgba(211, 47, 47, 0.25);
     }
 
-/* Carrusel e Imágenes */
-.carousel { 
-  position: relative; 
-  width: 100%; 
-  height: 220px; 
-  background: #000; 
-  overflow: hidden;
-}
+    /* Carrusel e Imágenes */
+    .carousel { 
+      position: relative; 
+      width: 100%; 
+      height: 270px; 
+      background: #000; 
+      overflow: hidden;
+    }
 
-.carousel img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-  filter: brightness(0.95);
-  transition: opacity 0.3s ease;
-}
+    .carousel img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      filter: brightness(0.95);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      cursor: zoom-in;
+    }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-  z-index: 2;
-}
-.carousel-btn:hover { background: rgba(0, 0, 0, 0.85); }
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
+    .carousel img:hover {
+      transform: scale(1.02);
+    }
 
-.carousel-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 2;
-}
-.dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-}
-.dot.active {
-  background: #fff;
-  width: 12px;
-  border-radius: 10px;
-}
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .carousel-btn:hover { background: rgba(0, 0, 0, 0.85); }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
 
-/* Etiquetas y Precio */
-.badge-charlable { 
-  position: absolute; 
-  top: 12px; 
-  left: 12px; 
-  background-color: #c93b3e; /* Rojo como la imagen original */
-  color: #ffffff; 
-  padding: 5px 12px; 
-  border-radius: 8px; /* Bordes redondeados de la imagen */
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem; 
-  font-weight: 800; 
-  letter-spacing: 0.5px;
-  text-transform: uppercase; 
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 2;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      background: #fff;
+      width: 12px;
+      border-radius: 10px;
+    }
 
-.price-tag { 
-  position: absolute; 
-  bottom: 12px; 
-  right: 12px; 
-  background: rgba(15, 15, 17, 0.9); 
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 5px 12px; 
-  border-radius: 4px; 
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700; 
-  color: #ffffff; 
-  font-size: 1rem; 
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(8px);
-  z-index: 2;
-}
+    /* Etiquetas y Precio */
+    .badge-charlable { 
+      position: absolute; 
+      top: 12px; 
+      left: 12px; 
+      background-color: #c93b3e; 
+      color: #ffffff; 
+      padding: 5px 12px; 
+      border-radius: 8px; 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem; 
+      font-weight: 800; 
+      letter-spacing: 0.5px;
+      text-transform: uppercase; 
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
 
-/* Contenido de la Tarjeta */
-.card-body { 
-  padding: 20px; 
-  flex-grow: 1; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: space-between; 
-}
+    .price-tag { 
+      position: absolute; 
+      bottom: 12px; 
+      right: 12px; 
+      background: rgba(15, 15, 17, 0.9); 
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 5px 12px; 
+      border-radius: 4px; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; 
+      color: #ffffff; 
+      font-size: 1rem; 
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(8px);
+      z-index: 2;
+    }
 
-.card-title { 
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.15rem; 
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 12px; 
-  letter-spacing: -0.2px;
-}
+    /* Contenido de la Tarjeta */
+    .card-body { 
+      padding: 20px; 
+      flex-grow: 1; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+    }
 
-.card-specs { 
-  display: flex; 
-  gap: 16px; 
-  color: #8e8e93; 
-  font-size: 0.82rem; 
-  margin-bottom: 14px; 
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  padding-bottom: 12px;
-}
+    .card-title { 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem; 
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px; 
+      letter-spacing: -0.2px;
+    }
 
-.card-specs span { display: flex; align-items: center; gap: 6px; }
-.card-specs i { color: #6e6e73; font-size: 0.85rem; }
+    .card-specs { 
+      display: flex; 
+      gap: 16px; 
+      color: #8e8e93; 
+      font-size: 0.82rem; 
+      margin-bottom: 14px; 
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 12px;
+    }
 
-.card-desc { 
-  color: #a1a1a6; 
-  font-size: 0.88rem; 
-  margin-bottom: 20px; 
-  line-height: 1.5; 
-  min-height: 40px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+    .card-specs span { display: flex; align-items: center; gap: 6px; }
+    .card-specs i { color: #6e6e73; font-size: 0.85rem; }
 
-/* Botón Consultar */
-.btn-ws-card { 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  gap: 8px; 
-  background: #B71C1C; 
-  color: #ffffff; 
-  text-decoration: none; 
-  padding: 11px 16px; 
-  border-radius: 4px; 
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600; 
-  font-size: 0.85rem; 
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  transition: background 0.2s ease; 
-  border: none;
-}
+    .card-desc { 
+      color: #a1a1a6; 
+      font-size: 0.88rem; 
+      margin-bottom: 20px; 
+      line-height: 1.5; 
+      min-height: 40px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
-.btn-ws-card:hover { 
-  background: #d32f2f; 
-}
+    /* Botón Consultar */
+    .btn-ws-card { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 8px; 
+      background: #B71C1C; 
+      color: #ffffff; 
+      text-decoration: none; 
+      padding: 11px 16px; 
+      border-radius: 4px; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600; 
+      font-size: 0.85rem; 
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: background 0.2s ease; 
+      border: none;
+    }
+
+    .btn-ws-card:hover { 
+      background: #d32f2f; 
+    }
 
     .btn-ws-card i {
       font-size: 1.2rem;
@@ -318,190 +323,218 @@
     .location-info a { color: var(--accent-yellow); text-decoration: none; }
 
     .logo-img {
-  height: 45px; /* Ajusta la altura según cómo se vea mejor en tu barra */
-  width: auto;
-  object-fit: contain;
-}
+      height: 45px; 
+      width: auto;
+      object-fit: contain;
+    }
 
-/* Botón "Contacto" estilo cápsula/pill en el Header */
-.btn-contacto-pill {
-  background-color: var(--primary-red);
-  color: white;
-  border: none;
-  padding: 8px 22px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-left: 20px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-.btn-contacto-pill:hover {
-  background-color: #b71c1c;
-  transform: translateY(-1px);
-}
+    /* Botón "Contacto" estilo cápsula/pill en el Header */
+    .btn-contacto-pill {
+      background-color: var(--primary-red);
+      color: white;
+      border: none;
+      padding: 8px 22px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-left: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .btn-contacto-pill:hover {
+      background-color: #b71c1c;
+      transform: translateY(-1px);
+    }
 
-/* Modal / Pop-up Overlay */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(5px);
-  z-index: 1000;
+    /* Modales Generales */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    /* Modal de Contacto */
+    .modal-content {
+      background: #ffffff;
+      color: #111111;
+      width: 100%;
+      max-width: 580px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      font-size: 1.5rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-map {
+      width: 100%;
+      height: 240px;
+    }
+
+    .modal-body {
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    .modal-address {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #222222;
+      margin-bottom: 20px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-modal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      flex: 1;
+      min-width: 200px;
+      transition: opacity 0.2s;
+    }
+    .btn-modal:hover { opacity: 0.9; }
+
+    .btn-ws { background-color: #25D366; }
+    .btn-email { background-color: var(--primary-red); }
+
+    /* Modal de Imagen Ampliada (Lightbox) */
+/* Modal de Imagen Ampliada (Lightbox Corregido) */
+.image-modal-content {
+  position: relative;
+  width: 90vw;
+  max-width: 1000px;
+  height: 85vh;
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-}
-.modal-overlay.active {
-  display: flex;
-}
-
-/* Contenido de la ventana Pop-up */
-.modal-content {
-  background: #ffffff;
-  color: #111111;
-  width: 100%;
-  max-width: 580px;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   animation: modalFadeIn 0.3s ease;
 }
 
-@keyframes modalFadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.modal-close {
-  position: absolute;
-  top: 12px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  font-size: 1.5rem;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Mapa superior */
-.modal-map {
+.image-modal-content img {
   width: 100%;
-  height: 240px;
+  height: 100%;
+  object-fit: contain; /* Mantiene la proporción sin deformar la foto */
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Cuerpo con dirección y botones de acción */
-.modal-body {
-  padding: 25px 20px;
-  text-align: center;
-}
-
-.modal-address {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #222222;
-  margin-bottom: 20px;
-}
-
-.modal-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn-modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  flex: 1;
-  min-width: 200px;
-  transition: opacity 0.2s;
-}
-.btn-modal:hover { opacity: 0.9; }
-
-.btn-ws { background-color: #25D366; }
-.btn-email { background-color: var(--primary-red); }
-
-/* Botón hamburguesa oculto por defecto en PC */
-.menu-toggle {
-  display: none;
+.image-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
   background: none;
   border: none;
-  color: white;
-  font-size: 1.6rem;
+  color: #fff;
+  font-size: 2.2rem;
   cursor: pointer;
-  padding: 5px;
+  transition: color 0.2s;
+  z-index: 1001;
 }
+.image-modal-close:hover { color: var(--primary-red); }
 
-/* Reglas exclusivamente para celulares */
-@media (max-width: 768px) {
-  header {
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-  }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.6rem;
+      cursor: pointer;
+      padding: 5px;
+    }
 
-  /* Mostrar el botón de 3 rayitas en celular */
-  .menu-toggle {
-    display: block;
-  }
+    @media (max-width: 768px) {
+      header {
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+      }
 
-  /* Menú colapsable */
-  nav {
-    display: none; /* Se oculta por defecto */
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #000000;
-    border-bottom: 2px solid var(--primary-red);
-    padding: 20px;
-    gap: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    z-index: 99;
-  }
+      .menu-toggle {
+        display: block;
+      }
 
-  /* Clase que activa el despliegue del menú */
-  nav.active {
-    display: flex;
-  }
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+        border-bottom: 2px solid var(--primary-red);
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        z-index: 99;
+      }
 
-  nav a {
-    margin-left: 0;
-    font-size: 1.1rem;
-    text-align: center;
-    padding: 8px 0;
-  }
+      nav.active {
+        display: flex;
+      }
 
-  .btn-contacto-pill {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-  }
-}
+      nav a {
+        margin-left: 0;
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 8px 0;
+      }
 
+      .btn-contacto-pill {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -512,7 +545,6 @@
     <div class="brand-title">DIAG0NALS <span>MOTORS</span></div>
   </a>
 
-  <!-- Botón de 3 rayitas para celulares -->
   <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
     <i class="fa-solid fa-bars"></i>
   </button>
@@ -523,319 +555,323 @@
     <button type="button" class="btn-contacto-pill" onclick="closeMenu(); openContactModal();">Contacto</button>
   </nav>
 
-<div id="contact-modal" class="modal-overlay" onclick="closeContactModal(event)">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeContactModal(event, true)">&times;</button>
-    
-    <!-- Mapa del modal -->
-    <div class="modal-map">
-      <iframe 
-        id="modal-map-iframe"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.8385750033147!2d-57.9205082!3d-34.9223566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e9d1a88d7081%3A0xf78da4a2229ce6d4!2sDiagonal%20Motors!5e0!3m2!1ses!2sar!4v1711100000000!5m2!1ses!2sar" 
-        width="100%" 
-        height="100%" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy">
-      </iframe>
-    </div>
-
-    <!-- Info y Botones -->
-    <div class="modal-body">
-      <p class="modal-address" id="modal-address-text">C. 72 y 118, La Plata, Prov. de Buenos Aires.</p>
+  <!-- Modal Contacto -->
+  <div id="contact-modal" class="modal-overlay" onclick="closeContactModal(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeContactModal(event, true)">&times;</button>
       
-      <div class="modal-actions">
-        <a id="modal-ws-btn" href="#" target="_blank" class="btn-modal btn-ws">
-          <i class="fa-brands fa-whatsapp"></i> <span id="modal-ws-num">221-XXXXXXX</span>
-        </a>
-        <a id="modal-email-btn" href="mailto:diagonalmotorslp@gmail.com" class="btn-modal btn-email">
-          <i class="fa-regular fa-envelope"></i> <span id="modal-email-text">diagonalmotorslp@gmail.com</span>
-        </a>
+      <div class="modal-map">
+        <iframe 
+          id="modal-map-iframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.8385750033147!2d-57.9205082!3d-34.9223566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e9d1a88d7081%3A0xf78da4a2229ce6d4!2sDiagonal%20Motors!5e0!3m2!1ses!2sar!4v1711100000000!5m2!1ses!2sar" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-address" id="modal-address-text">C. 72 y 118, La Plata, Prov. de Buenos Aires.</p>
+        
+        <div class="modal-actions">
+          <a id="modal-ws-btn" href="#" target="_blank" class="btn-modal btn-ws">
+            <i class="fa-brands fa-whatsapp"></i> <span id="modal-ws-num">221-XXXXXXX</span>
+          </a>
+          <a id="modal-email-btn" href="mailto:diagonalmotorslp@gmail.com" class="btn-modal btn-email">
+            <i class="fa-regular fa-envelope"></i> <span id="modal-email-text">diagonalmotorslp@gmail.com</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-  </header>
 
-  <section class="hero">
-    <div class="badge-lp"><i class="fa-solid fa-location-dot"></i> La Plata, Bs. As.</div>
-    <h1>Encontrá tu próximo auto en <span>Diagonal Motors</span></h1>
-    <p>Calidad, transparencia y la mejor atención de la ciudad. Consultanos sin compromiso, tomamos permutas y escuchamos tu propuesta.</p>
-  </section>
-
-  <main class="container" id="catalogo">
-    <h2 class="section-title">Vehículos Disponibles</h2>
-    <div class="grid" id="autos-container">
-      <p style="color: var(--text-muted);">Cargando catálogo de vehículos...</p>
+  <!-- Modal Visor de Imagen Ampliada -->
+  <div id="image-modal" class="modal-overlay" onclick="closeImageModal(event)">
+    <div class="image-modal-content">
+      <button class="image-modal-close" onclick="closeImageModal(event, true)">&times;</button>
+      <img id="image-modal-src" src="" alt="Imagen ampliada">
     </div>
+  </div>
+</header>
 
-    <!-- Sobre Nosotros -->
-    <section class="about-section" id="nosotros">
-      <h2 class="section-title">Sobre Nosotros</h2>
-      <div class="about-grid">
-        <!-- Columna Izquierda: Historia y Beneficios -->
-        <div class="about-info">
-          <p id="sobre-nosotros-texto" style="line-height: 1.6; color: #ccc;">
-            En Diagonal Motors nos apasionan los autos y nos enfocamos en ofrecer una experiencia de compra transparente y ágil en La Plata.
-          </p>
-          <ul class="about-list">
-            <li><i class="fa-solid fa-check"></i> Permutas y consignaciones.</li>
-            <li><i class="fa-solid fa-check"></i> Revisión integral de documentación.</li>
-            <li><i class="fa-solid fa-check"></i> Asesoramiento personalizado inmediato.</li>
-          </ul>
-        </div>
+<section class="hero">
+  <div class="badge-lp"><i class="fa-solid fa-location-dot"></i> La Plata, Bs. As.</div>
+  <h1>Encontrá tu próximo auto en <span>Diagonal Motors</span></h1>
+  <p>Calidad, transparencia y la mejor atención de la ciudad. Consultanos sin compromiso, tomamos permutas y escuchamos tu propuesta.</p>
+</section>
 
-        <!-- Columna Derecha: Tarjeta de Ubicación + Mapa -->
-        <div class="location-card">
-          <div class="location-details">
-            <h3 class="location-title"><i class="fa-solid fa-store"></i> Visitanos en nuestro local</h3>
-            <p class="location-info" id="ubicacion-texto">C. 72 y 118, La Plata, Prov. de Buenos Aires.</p>
-            
-            <div class="location-buttons">
-              <a id="maps-link" href="#" target="_blank" class="btn-location btn-maps">
-                <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
-              </a>
-              <a id="ws-about-link" href="#" target="_blank" class="btn-location btn-ws-red">
-                <i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp
-              </a>
-            </div>
-          </div>
+<main class="container" id="catalogo">
+  <h2 class="section-title">Vehículos Disponibles</h2>
+  <div class="grid" id="autos-container">
+    <p style="color: var(--text-muted);">Cargando catálogo de vehículos...</p>
+  </div>
 
-          <!-- Mapa Embebido de La Plata -->
-          <div class="map-container">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.8385750033147!2d-57.9205082!3d-34.9223566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e9d1a88d7081%3A0xf78da4a2229ce6d4!2sDiagonal%20Motors!5e0!3m2!1ses!2sar!4v1711100000000!5m2!1ses!2sar" 
-              width="100%" 
-              height="100%" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-        </div>
+  <section class="about-section" id="nosotros">
+    <h2 class="section-title">Sobre Nosotros</h2>
+    <div class="about-grid">
+      <div class="about-info">
+        <p id="sobre-nosotros-texto" style="line-height: 1.6; color: #ccc;">
+          En Diagonal Motors nos apasionan los autos y nos enfocamos en ofrecer una experiencia de compra transparente y ágil en La Plata.
+        </p>
+        <ul class="about-list">
+          <li><i class="fa-solid fa-check"></i> Permutas y consignaciones.</li>
+          <li><i class="fa-solid fa-check"></i> Revisión integral de documentación.</li>
+          <li><i class="fa-solid fa-check"></i> Asesoramiento personalizado inmediato.</li>
+        </ul>
       </div>
-    </section>
-  </main>
 
-  <footer id="contacto">
-    <h3>Diagonal Motors - La Plata</h3>
-    <div class="social-links">
-      <a id="link-instagram" href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a id="link-tiktok" href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-      <a id="link-facebook" href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-    </div>
-    <p style="color: #666; font-size: 0.85rem;">&copy; 2026 Diagonal Motors LP. Todos los derechos reservados.</p>
-  </footer>
-
-  <script>
-    const CONFIG = {
-      binId: "6ab274b7ffd5d1605322f7b0",
-      apiKey: "$2a$10$IySOsp8KPzkmNsT3HX4iOefVmsBhQm.V0KwP6k6sdeJflkVcqm1ry"
-    };
-
-    // Utilidades para formateo de números
-    function formatPrecio(val, moneda) {
-      if(!val) return '';
-      const num = parseInt(val.toString().replace(/\D/g, ''));
-      const formatted = isNaN(num) ? val : num.toLocaleString('es-AR');
-      return `${moneda || 'USD'} $${formatted}`;
-    }
-
-    function formatKm(val) {
-      if(!val) return '';
-      const num = parseInt(val.toString().replace(/\D/g, ''));
-      return isNaN(num) ? val : `${num.toLocaleString('es-AR')} km`;
-    }
-
-    async function cargarDatos() {
-      try {
-        const res = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.binId}/latest`, {
-          headers: { 'X-Master-Key': CONFIG.apiKey }
-        });
-        const data = await res.json();
-        const record = data.record;
-
-        // Cargar Info Empresa
-        if(record.empresa) {
-          document.getElementById('sobre-nosotros-texto').innerText = record.empresa.sobreNosotros;
-          document.getElementById('ubicacion-texto').innerText = record.empresa.ubicacion;
-          document.getElementById('maps-link').href = record.empresa.mapsUrl;
+      <div class="location-card">
+        <div class="location-details">
+          <h3 class="location-title"><i class="fa-solid fa-store"></i> Visitanos en nuestro local</h3>
+          <p class="location-info" id="ubicacion-texto">C. 72 y 118, La Plata, Prov. de Buenos Aires.</p>
           
-          const wsMsg = encodeURIComponent("Hola Diagonal Motors! Quisiera consultar sobre la ubicación / comprar un auto.");
-          document.getElementById('ws-about-link').href = `https://wa.me/${record.empresa.whatsapp}?text=${wsMsg}`;
-
-          document.getElementById('link-instagram').href = record.empresa.instagram;
-          document.getElementById('link-tiktok').href = record.empresa.tiktok;
-          document.getElementById('link-facebook').href = record.empresa.facebook;
-        }
-
-        // Cargar Autos
-        renderAutos(record.autos || [], record.empresa?.whatsapp || '5492216478840');
-
-      } catch (e) {
-        console.error(e);
-        document.getElementById('autos-container').innerHTML = '<p>Error al cargar el catálogo.</p>';
-      }
-    }
-
-    // Renderizado de autos en la grilla
-    function renderAutos(autos, whatsappNum) {
-  const container = document.getElementById('autos-container');
-  container.innerHTML = '';
-
-  const disponibles = autos.filter(a => !a.vendido);
-
-  if(disponibles.length === 0) {
-    container.innerHTML = '<p style="color: var(--text-muted);">No hay vehículos disponibles en este momento.</p>';
-    return;
-  }
-
-  disponibles.forEach((auto, index) => {
-    const fallbackImg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='220' viewBox='0 0 400 220'%3E%3Crect width='400' height='220' fill='%23161618'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%238e8e93' font-family='sans-serif' font-size='16'%3EDIAG0NAL MOTORS%3C/text%3E%3C/svg%3E";
-    
-    const fotos = (auto.fotos && auto.fotos.length > 0) ? auto.fotos : [fallbackImg];
-    const msgWs = encodeURIComponent(`Hola Diagonal Motors! Me interesa el ${auto.titulo} (${auto.año}). Quisiera recibir más información.`);
-    
-    const card = document.createElement('div');
-    card.className = 'card';
-
-    card.innerHTML = `
-      <div class="carousel" id="carousel-${index}">
-        ${auto.precioCharlable ? '<span class="badge-charlable"><i class="fa-solid fa-handshake"></i> PRECIO CHARLABLE</span>' : ''}
-        
-        <img id="img-${index}" src="${fotos[0]}" onerror="this.src='${fallbackImg}'" alt="${auto.titulo}">
-        
-        ${fotos.length > 1 ? `
-          <button class="carousel-btn prev" onclick="changePhoto(${index}, -1,${JSON.stringify(fotos).replace(/"/g, '&quot;')})"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next" onclick="changePhoto(${index}, 1,${JSON.stringify(fotos).replace(/"/g, '&quot;')})"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="carousel-dots" id="dots-${index}">
-            ${fotos.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}"></div>`).join('')}
+          <div class="location-buttons">
+            <a id="maps-link" href="#" target="_blank" class="btn-location btn-maps">
+              <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+            </a>
+            <a id="ws-about-link" href="#" target="_blank" class="btn-location btn-ws-red">
+              <i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp
+            </a>
           </div>
-        ` : ''}
-
-        <div class="price-tag">${formatPrecio(auto.precio, auto.moneda)}</div>
-      </div>
-
-      <div class="card-body">
-        <div>
-          <h3 class="card-title">${auto.titulo}</h3>
-          <div class="card-specs">
-            <span><i class="fa-regular fa-calendar"></i> ${auto.año}</span>
-            <span><i class="fa-solid fa-gauge-simple"></i> ${formatKm(auto.kilometros)}</span>
-            ${auto.color ? `<span><i class="fa-solid fa-circle-notch"></i> ${auto.color}</span>` : ''}
-          </div>
-          <p class="card-desc">${auto.descripcion || 'Sin descripción disponible.'}</p>
         </div>
-        
-        <a href="https://wa.me/${whatsappNum}?text=${msgWs}" target="_blank" class="btn-ws-card">
-          <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.8385750033147!2d-57.9205082!3d-34.9223566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e9d1a88d7081%3A0xf78da4a2229ce6d4!2sDiagonal%20Motors!5e0!3m2!1ses!2sar!4v1711100000000!5m2!1ses!2sar" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
-    `;
+    </div>
+  </section>
+</main>
 
-    container.appendChild(card);
-  });
-}
-    // Navegación de fotos por tarjeta
-    const currentPhotoIndex = {};
-    function changePhoto(cardIdx, dir, fotos) {
-      if (!(cardIdx in currentPhotoIndex)) currentPhotoIndex[cardIdx] = 0;
-      
-      currentPhotoIndex[cardIdx] = (currentPhotoIndex[cardIdx] + dir + fotos.length) % fotos.length;
-      const newIdx = currentPhotoIndex[cardIdx];
+<footer id="contacto">
+  <h3>Diagonal Motors - La Plata</h3>
+  <div class="social-links">
+    <a id="link-instagram" href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a id="link-tiktok" href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+    <a id="link-facebook" href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+  </div>
+  <p style="color: #666; font-size: 0.85rem;">&copy; 2026 Diagonal Motors LP. Todos los derechos reservados.</p>
+</footer>
 
-      document.getElementById(`img-${cardIdx}`).src = fotos[newIdx];
+<script>
+  const CONFIG = {
+    binId: "6ab274b7ffd5d1605322f7b0",
+    apiKey: "$2a$10$IySOsp8KPzkmNsT3HX4iOefVmsBhQm.V0KwP6k6sdeJflkVcqm1ry"
+  };
 
-      const dotsContainer = document.getElementById(`dots-${cardIdx}`);
-      if (dotsContainer) {
-        const dots = dotsContainer.querySelectorAll('.dot');
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === newIdx);
-        });
+  window.carousels = {};
+
+  function formatPrecio(val, moneda) {
+    if(!val) return '';
+    const num = parseInt(val.toString().replace(/\D/g, ''));
+    const formatted = isNaN(num) ? val : num.toLocaleString('es-AR');
+    return `${moneda || 'USD'} $${formatted}`;
+  }
+
+  function formatKm(val) {
+    if(!val) return '';
+    const num = parseInt(val.toString().replace(/\D/g, ''));
+    return isNaN(num) ? val : `${num.toLocaleString('es-AR')} km`;
+  }
+
+  async function cargarDatos() {
+    try {
+      const res = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.binId}/latest`, {
+        headers: { 'X-Master-Key': CONFIG.apiKey }
+      });
+      const data = await res.json();
+      const record = data.record;
+
+      if(record.empresa) {
+        document.getElementById('sobre-nosotros-texto').innerText = record.empresa.sobreNosotros;
+        document.getElementById('ubicacion-texto').innerText = record.empresa.ubicacion;
+        document.getElementById('maps-link').href = record.empresa.mapsUrl;
+        
+        const wsMsg = encodeURIComponent("Hola Diagonal Motors! Quisiera hacer una consulta.");
+        document.getElementById('ws-about-link').href = `https://wa.me/${record.empresa.whatsapp}?text=${wsMsg}`;
+
+        document.getElementById('link-instagram').href = record.empresa.instagram;
+        document.getElementById('link-tiktok').href = record.empresa.tiktok;
+        document.getElementById('link-facebook').href = record.empresa.facebook;
+
+        // Actualización Pop-up Modal Contacto
+        document.getElementById('modal-address-text').innerText = record.empresa.ubicacion;
+        document.getElementById('modal-ws-btn').href = `https://wa.me/${record.empresa.whatsapp}?text=${wsMsg}`;
+        if(record.empresa.whatsapp) {
+          document.getElementById('modal-ws-num').innerText = record.empresa.whatsapp;
+        }
+        if(record.empresa.email) {
+          document.getElementById('modal-email-btn').href = `mailto:${record.empresa.email}`;
+          document.getElementById('modal-email-text').innerText = record.empresa.email;
+        }
       }
+
+      renderAutos(record.autos || [], record.empresa?.whatsapp || '5492216478840');
+
+    } catch (e) {
+      console.error(e);
+      document.getElementById('autos-container').innerHTML = '<p>Error al cargar el catálogo.</p>';
+    }
+  }
+
+  function renderAutos(autos, whatsappNum) {
+    const container = document.getElementById('autos-container');
+    container.innerHTML = '';
+    window.carousels = {}; 
+
+    const disponibles = autos.filter(a => !a.vendido);
+
+    if(disponibles.length === 0) {
+      container.innerHTML = '<p style="color: var(--text-muted);">No hay vehículos disponibles en este momento.</p>';
+      return;
     }
 
-    cargarDatos();
+    disponibles.forEach((auto, index) => {
+      const fallbackImg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='220' viewBox='0 0 400 220'%3E%3Crect width='400' height='220' fill='%23161618'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%238e8e93' font-family='sans-serif' font-size='16'%3EDIAG0NAL MOTORS%3C/text%3E%3C/svg%3E";
+      
+      const fotos = (auto.fotos && auto.fotos.length > 0) ? auto.fotos : [fallbackImg];
+      
+      window.carousels[index] = {
+        fotos: fotos,
+        currentIndex: 0
+      };
 
-    // Funciones para abrir y cerrar el Pop-up
-function openContactModal() {
-  document.getElementById('contact-modal').classList.add('active');
-}
+      const msgWs = encodeURIComponent(`Hola Diagonal Motors! Me interesa el ${auto.titulo} (${auto.año}). Quisiera recibir más información.`);
+      
+      const card = document.createElement('div');
+      card.className = 'card';
 
-function closeContactModal(event, forceClose = false) {
-  if (forceClose || event.target.classList.contains('modal-overlay')) {
-    document.getElementById('contact-modal').classList.remove('active');
-  }
-}
+      card.innerHTML = `
+        <div class="carousel" id="carousel-${index}">
+          ${auto.precioCharlable ? '<span class="badge-charlable"><i class="fa-solid fa-handshake"></i> PRECIO CHARLABLE</span>' : ''}
+          
+          <img id="img-${index}" src="${fotos[0]}" onerror="this.src='${fallbackImg}'" alt="${auto.titulo}" onclick="openImageModal(${index})">
+          
+          ${fotos.length > 1 ? `
+            <button class="carousel-btn prev" onclick="changePhoto(${index}, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn next" onclick="changePhoto(${index}, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="carousel-dots" id="dots-${index}">
+              ${fotos.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}"></div>`).join('')}
+            </div>
+          ` : ''}
 
-// Dentro de tu función existente cargarDatos(), actualiza el Pop-up con la info real de la empresa:
-async function cargarDatos() {
-  try {
-    const res = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.binId}/latest`, {
-      headers: { 'X-Master-Key': CONFIG.apiKey }
+          <div class="price-tag">${formatPrecio(auto.precio, auto.moneda)}</div>
+        </div>
+
+        <div class="card-body">
+          <div>
+            <h3 class="card-title">${auto.titulo}</h3>
+            <div class="card-specs">
+              <span><i class="fa-regular fa-calendar"></i> ${auto.año}</span>
+              <span><i class="fa-solid fa-gauge-simple"></i> ${formatKm(auto.kilometros)}</span>
+              ${auto.color ? `<span><i class="fa-solid fa-circle-notch"></i> ${auto.color}</span>` : ''}
+            </div>
+            <p class="card-desc">${auto.descripcion || 'Sin descripción disponible.'}</p>
+          </div>
+          
+          <a href="https://wa.me/${whatsappNum}?text=${msgWs}" target="_blank" class="btn-ws-card">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      `;
+
+      container.appendChild(card);
     });
-    const data = await res.json();
-    const record = data.record;
+  }
 
-    if(record.empresa) {
-      document.getElementById('sobre-nosotros-texto').innerText = record.empresa.sobreNosotros;
-      document.getElementById('ubicacion-texto').innerText = record.empresa.ubicacion;
-      document.getElementById('maps-link').href = record.empresa.mapsUrl;
-      
-      const wsMsg = encodeURIComponent("Hola Diagonal Motors! Quisiera hacer una consulta.");
-      document.getElementById('ws-about-link').href = `https://wa.me/${record.empresa.whatsapp}?text=${wsMsg}`;
+  function changePhoto(cardIdx, dir) {
+    const item = window.carousels[cardIdx];
+    if (!item || !item.fotos || item.fotos.length <= 1) return;
 
-      document.getElementById('link-instagram').href = record.empresa.instagram;
-      document.getElementById('link-tiktok').href = record.empresa.tiktok;
-      document.getElementById('link-facebook').href = record.empresa.facebook;
+    item.currentIndex = (item.currentIndex + dir + item.fotos.length) % item.fotos.length;
+    const newIdx = item.currentIndex;
 
-      // ACTUALIZACIÓN DEL POP-UP MODAL:
-      document.getElementById('modal-address-text').innerText = record.empresa.ubicacion;
-      document.getElementById('modal-ws-btn').href = `https://wa.me/${record.empresa.whatsapp}?text=${wsMsg}`;
-      if(record.empresa.whatsapp) {
-        document.getElementById('modal-ws-num').innerText = record.empresa.whatsapp;
-      }
-      if(record.empresa.email) {
-        document.getElementById('modal-email-btn').href = `mailto:${record.empresa.email}`;
-        document.getElementById('modal-email-text').innerText = record.empresa.email;
-      }
+    document.getElementById(`img-${cardIdx}`).src = item.fotos[newIdx];
+
+    const dotsContainer = document.getElementById(`dots-${cardIdx}`);
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === newIdx);
+      });
     }
-
-    renderAutos(record.autos || [], record.empresa?.whatsapp || '5492216478840');
-
-  } catch (e) {
-    console.error(e);
-    document.getElementById('autos-container').innerHTML = '<p>Error al cargar el catálogo.</p>';
   }
-}
 
-function toggleMenu() {
-  const nav = document.getElementById('nav-menu');
-  const icon = document.querySelector('#menu-toggle i');
-  
-  nav.classList.toggle('active');
+  /* Modal de Imagen Ampliada */
+  function openImageModal(cardIdx) {
+    const item = window.carousels[cardIdx];
+    if (!item) return;
 
-  // Cambia el ícono de 3 rayitas a una 'X' cuando está abierto
-  if (nav.classList.contains('active')) {
-    icon.classList.remove('fa-bars');
-    icon.classList.add('fa-xmark');
-  } else {
-    icon.classList.remove('fa-xmark');
-    icon.classList.add('fa-bars');
+    const currentImgSrc = item.fotos[item.currentIndex];
+    const modalImg = document.getElementById('image-modal-src');
+    modalImg.src = currentImgSrc;
+
+    document.getElementById('image-modal').classList.add('active');
   }
-}
 
-function closeMenu() {
-  const nav = document.getElementById('nav-menu');
-  const icon = document.querySelector('#menu-toggle i');
-  
-  if (nav.classList.contains('active')) {
-    nav.classList.remove('active');
-    icon.classList.remove('fa-xmark');
-    icon.classList.add('fa-bars');
+  function closeImageModal(event, forceClose = false) {
+    if (forceClose || event.target.id === 'image-modal' || event.target.classList.contains('image-modal-close')) {
+      document.getElementById('image-modal').classList.remove('active');
+    }
   }
-}
-  </script>
+
+  /* Modal de Contacto */
+  function openContactModal() {
+    document.getElementById('contact-modal').classList.add('active');
+  }
+
+  function closeContactModal(event, forceClose = false) {
+    if (forceClose || event.target.classList.contains('modal-overlay')) {
+      document.getElementById('contact-modal').classList.remove('active');
+    }
+  }
+
+  /* Menú Hamburguesa */
+  function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    const icon = document.querySelector('#menu-toggle i');
+    
+    nav.classList.toggle('active');
+
+    if (nav.classList.contains('active')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    } else {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+  }
+
+  function closeMenu() {
+    const nav = document.getElementById('nav-menu');
+    const icon = document.querySelector('#menu-toggle i');
+    
+    if (nav.classList.contains('active')) {
+      nav.classList.remove('active');
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+  }
+
+  // Cerrar modales con la tecla Esc
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      document.getElementById('image-modal').classList.remove('active');
+      document.getElementById('contact-modal').classList.remove('active');
+    }
+  });
+
+  cargarDatos();
+</script>
 </body>
 </html>
